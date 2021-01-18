@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './styles/index.css';
+import './styles/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>

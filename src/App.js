@@ -64,23 +64,25 @@ function App() {
         <Row>
           {filteredChampions.map(champion => (
             <Col
-              className="cursor-pointer"
               key={champion.id}
+              className="hero-container"
               xs={6}
               sm={4}
               md={3}
               lg={2}
               onClick={() => setSelectedChampionId(champion.id)}
             >
-              <Figure>
-                <Figure.Image
-                  alt={`Foto de ${champion.name}`}
-                  src={`${ROOT_LOL_API}/img/champion/${champion.image.full}`}
-                />
-                <Figure.Caption className="text-white-50">
-                  {champion.name}
-                </Figure.Caption>
-              </Figure>
+              <button className="hero-container__button" type="button">
+                <Figure className="m-0">
+                  <Figure.Image
+                    alt={`Foto de ${champion.name}`}
+                    src={`${ROOT_LOL_API}/img/champion/${champion.image.full}`}
+                  />
+                  <Figure.Caption className="text-white-50">
+                    {champion.name}
+                  </Figure.Caption>
+                </Figure>
+              </button>
             </Col>
           ))}
         </Row>

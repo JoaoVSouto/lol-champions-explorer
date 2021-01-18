@@ -1,0 +1,33 @@
+body {
+  background-color: #111;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+.hero-container {
+  transition: background-color 200ms;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:focus-within,
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &__button {
+    display: block;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 1rem auto;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
