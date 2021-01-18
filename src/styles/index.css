@@ -1,0 +1,14 @@
+body {
+  background-color: #111;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

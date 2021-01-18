@@ -1,8 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 
-export default configureStore({
+import championsSlice from '../ducks/championsSlice';
+import filteringSlice from '../ducks/filteringSlice';
+
+const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    champions: championsSlice,
+    filtering: filteringSlice,
   },
 });
+
+if (process.env.NODE_ENV === 'development') {
+  window.store = store;
+}
+
+export default store;
