@@ -4,6 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import Badge from 'react-bootstrap/Badge';
 import Image from 'react-bootstrap/Image';
 
+import { SPLASH_LOL_URL } from '../constants';
+
 function ChampionDetailsDialog({ championId, onClose }) {
   const champion = useSelector(state =>
     state.champions.items.find(champion => champion.id === championId)
@@ -14,10 +16,7 @@ function ChampionDetailsDialog({ championId, onClose }) {
   return (
     <>
       <Modal show centered onHide={handleClose}>
-        <Image
-          fluid
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`}
-        />
+        <Image fluid src={`${SPLASH_LOL_URL}/${champion.id}_0.jpg`} />
 
         <Modal.Header className="flex-column">
           <Modal.Title>
