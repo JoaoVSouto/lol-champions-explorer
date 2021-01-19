@@ -35,7 +35,7 @@ const {
 export const retrieveChampions = () => dispatch => {
   dispatch(setChampionsLoading());
 
-  fetch(`${ROOT_LOL_API}/data/pt_BR/champion.json`)
+  fetch(`${ROOT_LOL_API}/data/en_US/champion.json`)
     .then(response => response.json())
     .then(payload => {
       const retrievedChampions = Object.values(payload.data);

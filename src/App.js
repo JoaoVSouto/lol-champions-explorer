@@ -35,7 +35,7 @@ function App() {
   if (isLoading) {
     return (
       <Container className="mt-4">
-        <h1 className="text-light">Carregando...</h1>
+        <h1 className="text-light">Loading...</h1>
       </Container>
     );
   }
@@ -44,7 +44,7 @@ function App() {
     return (
       <Container className="mt-4">
         <h3 className="text-light">
-          Ops... Algum erro ocorreu ao requisitar os dados dos campeões.
+          Ops... Some error occurred while trying to fetch champions data.
         </h3>
       </Container>
     );
@@ -53,7 +53,7 @@ function App() {
   return (
     <>
       <Container as="header" className="my-4">
-        <h1 className="text-light">Escolha seu campeão</h1>
+        <h1 className="text-light">Choose your champion</h1>
       </Container>
 
       <Container>
