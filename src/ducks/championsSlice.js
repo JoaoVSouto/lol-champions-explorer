@@ -2,6 +2,8 @@ import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 import { ROOT_LOL_API } from '../constants';
 
+import championsConfig from '../services/championsConfig';
+
 export const championsSlice = createSlice({
   name: 'champions',
   initialState: {
@@ -52,7 +54,7 @@ const {
   setChampionsLoading,
 } = championsSlice.actions;
 
-export const { setIncreasingOrder } = championsSlice.actions;
+const { setIncreasingOrder } = championsSlice.actions;
 
 export const retrieveChampions = () => dispatch => {
   dispatch(setChampionsLoading());
@@ -64,6 +66,22 @@ export const retrieveChampions = () => dispatch => {
       dispatch(setChampionsSuccess(retrievedChampions));
     })
     .catch(() => dispatch(setChampionsError()));
+};
+
+export const setChampionsOrder = isIncreasingOrder => dispatch => {
+  const storedConfig = championsConfig.getAll();
+  storedConfig.isIncreasingOrder = isIncreasingOrder;
+  championsConfig.set(storedConfig);
+
+  dispatch(setIncreasingOrder(isIncreasingOrder));
+};
+
+export const fetchChampionsConfig = () => dispatch => {
+  const rawIsIncreasingOrder = championsConfig.get('isIncreasingOrder');
+  const isIncreasingOrder =
+    rawIsIncreasingOrder || rawIsIncreasingOrder === undefined;
+
+  dispatch(setIncreasingOrder(isIncreasingOrder));
 };
 
 export default championsSlice.reducer;

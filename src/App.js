@@ -10,7 +10,11 @@ import ChampionDetailsDialog from './components/ChampionDetailsDialog';
 import ChampionOrderForm from './components/ChampionOrderForm';
 
 import { ROOT_LOL_API } from './constants';
-import { retrieveChampions, orderedChampions } from './ducks/championsSlice';
+import {
+  retrieveChampions,
+  orderedChampions,
+  fetchChampionsConfig,
+} from './ducks/championsSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +34,7 @@ function App() {
   );
 
   React.useEffect(() => {
+    dispatch(fetchChampionsConfig());
     dispatch(retrieveChampions());
   }, [dispatch]);
 
