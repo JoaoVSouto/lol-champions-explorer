@@ -7,15 +7,16 @@ import Figure from 'react-bootstrap/Figure';
 
 import ChampionFilteringForm from './components/ChampionFilteringForm';
 import ChampionDetailsDialog from './components/ChampionDetailsDialog';
+import ChampionOrderForm from './components/ChampionOrderForm';
 
 import { ROOT_LOL_API } from './constants';
-import { retrieveChampions } from './ducks/championsSlice';
+import { retrieveChampions, orderedChampions } from './ducks/championsSlice';
 
 function App() {
   const dispatch = useDispatch();
-  const { isLoading, isError, items: champions } = useSelector(
-    state => state.champions
-  );
+
+  const { isLoading, isError } = useSelector(state => state.champions);
+  const champions = useSelector(state => orderedChampions(state.champions));
   const nameCriteria = useSelector(state => state.filtering.nameCriteria);
 
   const [selectedChampionId, setSelectedChampionId] = React.useState(null);
@@ -56,8 +57,10 @@ function App() {
         <h1 className="text-light">Choose your champion</h1>
       </Container>
 
-      <Container>
+      <Container className="d-md-flex">
         <ChampionFilteringForm />
+
+        <ChampionOrderForm />
       </Container>
 
       <Container>

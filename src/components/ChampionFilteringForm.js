@@ -15,8 +15,8 @@ function ChampionFilteringForm() {
   );
 
   return (
-    <Form>
-      <Form.Group controlId="nameCriteria" className="mb-4">
+    <Form className="flex-grow-1 mr-md-3">
+      <Form.Group controlId="nameCriteria">
         <Form.Label className="text-light">Filter by name:</Form.Label>
         <Form.Control onChange={handleNameChange} />
       </Form.Group>
